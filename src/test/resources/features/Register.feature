@@ -1,7 +1,9 @@
 Feature: Registration functionality
 
-Scenario: User creates an account only with mandatory fields
+Background: 
 Given User has navigates to Registration Account page 
+
+Scenario: User creates an account only with mandatory fields
 When User enters the details into the below fields
 |FirstName|Omar                   |
 |LastName |Nachmi                 |
@@ -12,7 +14,6 @@ And User clicks on Continue button
 Then User account sgould get created succefully
 
 Scenario: User creates an account  with mandatory fields
-Given User has navigates to Registration Account page 
 When User enters the details into the below fields
 |FirstName|Omar                   |
 |LastName |Nachmi                 |
@@ -24,7 +25,6 @@ And User clicks on Continue button
 Then User account sgould get created succefully
 
 Scenario: User creates a duplicate account  
-Given User has navigates to Registration Account page 
 When User enters the details into the below fields with exist email
 |FirstName|Omar                    |
 |LastName |Nachmi                  |
@@ -37,7 +37,6 @@ And User clicks on Continue button
 Then User should get a proper warning about duplicate email
 
 Scenario: User creates an account without filling any details
-Given User has navigates to Registration Account page 
 When User dont enter any details into fields 
 And User clicks on Continue button  
 Then User should get proper warning messages for every mandatory field
