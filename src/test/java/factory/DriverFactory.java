@@ -2,6 +2,7 @@ package factory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -12,7 +13,10 @@ public class DriverFactory {
 	public static void initializeBrowser (String browserName) { 
 		
 		if(browserName.equals("chrome")) {
-			driver = new ChromeDriver(); 
+			
+			ChromeOptions Options = new ChromeOptions();
+			Options.addArguments("--remote-allow-origins=*");
+			driver = new ChromeDriver(Options);
 		} 
 		else if(browserName.equals("firefox")) { 
 			driver = new FirefoxDriver(); 

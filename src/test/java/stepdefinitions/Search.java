@@ -15,20 +15,27 @@ public class Search {
 	WebDriver driver; 
 	private HomePage homePage; 
 	@Given("User opens Application")
-	public void user_opens_application() {
+	public void user_opens_application() throws InterruptedException {
 		 driver = DriverFactory.getDriver();
 		 
-		homePage = new HomePage(driver); 
+		 homePage = new HomePage(driver); 
+		 Thread.sleep(3000);
 		 homePage.clickOnMyAccount();
+		 Thread.sleep(3000);
 		 homePage.selectLoginOption();
+		 Thread.sleep(3000);
+
 		  	 
 	}
 
 	@When("User enters valid product {string} into search bow field")
-	public void user_enters_valid_product_into_search_bow_field(String ValidProductText) {
+	public void user_enters_valid_product_into_search_bow_field(String ValidProductText) throws InterruptedException {
 	    
 		HomePage homePage = new HomePage(driver);  
+		 Thread.sleep(3000);
 		homePage.searchBoxField(ValidProductText);
+		 Thread.sleep(3000);
+
 	}
 
 	@When("User clicks on Search button")
